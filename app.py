@@ -38,19 +38,12 @@ def pipeline():
     
     ftp =get_ftp()
     
-    #original code by author      
-    # for source_name, source_config in config.items():
-    #     file_name = source_name + ".csv"
-    #     df = read_csv(source_config)
-    #     df.to_csv(file_name, index=False)
-    
     # Iterate over each item in the config list
     for source in config:
         for source_name, source_config in source.items():
             file_name = Path(source_name + ".csv")
             df = read_csv(source_config)
             df.to_csv(file_name, index=False)
-            #print(f"{file_name} has been created successfully.")
             
             print(f"File{file_name} has been downloaded.")
             
